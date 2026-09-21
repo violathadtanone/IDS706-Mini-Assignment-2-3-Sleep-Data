@@ -8,11 +8,12 @@ This is the 2nd mini assignment under IDS 706 with the purpose for data analysis
 ```bash
 IDS706-Mini-Assignment-2-Data-Analysis
 ├── .gitignore
-├── requirements.txt            # List of packages required for installation
-├── analysis_query.ipynb        # Jupyter Notebook for Data Analysis
-├── rust_vs_python_intro.ipynb  # Jupyter Notebook for Rust Exploration based on the provide template
-├── Images/                     # Images used for supporting README.md explantion
-└── README.md                   # Project documentation
+├── requirements.txt                    # List of packages required for installation
+├── analysis_query.ipynb                # Jupyter Notebook for Data Analysis
+├── Sleep_health_and_lifestyle_dataset  # Dataset required for Data Analysis
+├── rust_vs_python_intro.ipynb          # Jupyter Notebook for Rust Exploration based on the provide template
+├── Images/                             # Images used for supporting README.md explantion
+└── README.md                           # Project documentation
 ```
 
 ## Dataset Description 
