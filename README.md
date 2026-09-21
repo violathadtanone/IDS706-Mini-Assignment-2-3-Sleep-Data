@@ -6,7 +6,7 @@ This is the 2nd mini assignment under IDS 706 with the purpose for data analysis
 
 ## Project Structure 
 ```bash
-IDS706-Mini-Assignment-2
+IDS706-Mini-Assignment-2-Data-Analysis
 ├── .gitignore
 ├── requirements.txt            # List of packages required for installation
 ├── analysis_query.ipynb        # Jupyter Notebook for Data Analysis
@@ -22,7 +22,7 @@ The dataset uses for this assignment is Sleep_health_and_lifestyle_dataset.csv f
 ## Overall Setup Instructions
 ### 1. Creat GitHub repository
 General:
-- Name the repository with `IDS706-Mini-Assignment-2`.
+- Name the repository with `IDS706-Mini-Assignment-2-Data-Analysis`.
 
 Configuration:
 - Add README - Toggle On option.
