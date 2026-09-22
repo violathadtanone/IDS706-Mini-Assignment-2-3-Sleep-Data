@@ -279,16 +279,18 @@ Instead of treating each function separately, we check that the entire workflow 
 
 ## Test Execution & Results
 ### 1. Run the test from python file
-- Run the code below in Terminal with `test_main.py` to see perform the test with details. Test results will be indicated here.
+- Run the code below in Terminal with `test_main.py` to see perform the test with details. The screenshot of test results can also be seen below, where all test cases successfully passed.
 ```bash
 python -m pytest -vv Testing/
 ```
+![Python Test Results](Images/python-test.png)
 
 ### 2. Run the test from Makefile
-- Run the code below in Terminal. This should return the same results of passing/failing from the previous steps.
+- Run the code below in Terminal. This should return the same results of passing/failing from the previous steps. The screenshot of test results can also be seen below, where all test cases successfully passed.
 ```bash
 make test
 ```
+![Make Test Results](Images/make-test.png)
 
 ### 3. Run the test from Docker
 - Run the code below in Terminal. This should return the same results of passing/failing from the previous steps. The screenshot of test results can also be seen below, where all test cases successfully passed.
