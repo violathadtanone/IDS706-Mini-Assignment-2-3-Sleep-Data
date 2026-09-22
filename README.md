@@ -232,7 +232,7 @@ make docker-build
 - Polars was slightly faster than Pandas for the data analysis section (0.68s vs. 0.7s), but slower for the machine learning section (0.95s vs. 0.76s).
 - Overall, this partially aligned with the general consensus that Polars can outperform Pandas, particularly for data manipulation, but Polars’ performance depends on the type of task, and it may not be faster when using tools like scikit-learn.
 
-![Pandas vs Polars](Image/pandas_vs_polars.png)
+![Pandas vs Polars](Images/pandas_vs_polars.png)
 <br><br>
 
 ## Rust Exploration
@@ -240,7 +240,7 @@ make docker-build
 <br><br>
 
 ## Functional Test
-Once we created `test_functional.py` during setup, test cases can be included across the following framework:
+Once we created `test_functional.py` during setup, functional test cases can be included across the following framework:
 ### 1. Data loading
 - Dataset is loaded as a DataFrame
 - Dataset is not empty
@@ -340,5 +340,5 @@ jobs:
 
 ### 2. Validate workflow run
 - We can check the successful run of the workflow, where the green icon indicates a complete run, where red icon indicates some failure during the run. The screenshot of CI results can also be seen below.
-![CI Results1](images/CI_results1.png)
-![CI Results2](images/CI_results2.png)
+![CI Results1](Images/CI_results1.png)
+![CI Results2](Images/CI_results2.png)
