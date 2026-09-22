@@ -1,3 +1,5 @@
+[![Functional & Integration Testing](https://github.com/violathadtanone/IDS706-Mini-Assignment-2-3-Sleep-Data/actions/workflows/test.yml/badge.svg)](https://github.com/violathadtanone/IDS706-Mini-Assignment-2-3-Sleep-Data/actions/workflows/test.yml)
+
 # IDS 706 Mini Assignment : Sleep Data Analysis - 22 Sep 2026
 
 ## Project Description
