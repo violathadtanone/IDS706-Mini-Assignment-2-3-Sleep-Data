@@ -304,7 +304,7 @@ This will allow us to use GitHub Action to automatically run the tests.
 
 ### 1. Add GitHub Actions
 - Create the folder called `.github` in the project root and create another subfolder called `workflows`.
-- Create the file called `test.yml` within `workflows` and include the code below.
+- Create the file called `test.yml` within `workflows` and include the code below:
 ```
 name: Functional & Integration Testing
 
