@@ -4,7 +4,7 @@
 This repository consolidates 2nd and 3rd mini assignment under IDS 706 as part of the 3-week project.
 
 - 2nd Mini Assignment - Start Your First Data Analysis: The first part covers the usage of pandas and polars with common data manipulation and visualisation. The latter part of this assignment covers experimentation with Rust on Jupyter notebook from the provided Rust template.
-- 3rd Mini Assignment - Testing and Reproducibility: This is for practicing the creation of unit test cases and set up a GitHub Actions workflow as an enhancement of those in 2nd Mini Assignment.
+- 3rd Mini Assignment - Testing and Reproducibility: This is for practicing the creation of unit test cases and set up a GitHub Actions workflow as an enhancement of those in 2nd Mini Assignment, especially on the analysis using Pandas.
 
 
 ## Project Structure 
@@ -83,7 +83,6 @@ pytest --version
 ## Setting up Pandas and Polars
 ### 1. Create new Jupyter Notebook file
 - Create a new file called `analysis_query.ipynb`
-<br><br>
 
 ### 2. Import required library
 - In `analysis_query.ipynb`, use the code below to import the installed packages during setup.
@@ -105,7 +104,6 @@ print(pd.__version__)
 print(pl.__version__)
 print(np.__version__)
 ```
-<br><br>
 
 ### 3. Import dataset
 - Add the dataset `Sleep_health_and_lifestyle_dataset.csv` into the project root and import the dataset into `analysis_query.ipynb` using the code below:
@@ -122,7 +120,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustc --version
 cargo --version
 ```
-<br><br>
 
 ### 2. Rust Jupyter kernel
 - Upon successful installation of the code below in terminal, this should return as "Installation complete".
