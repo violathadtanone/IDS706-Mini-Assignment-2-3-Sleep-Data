@@ -1,19 +1,29 @@
-# IDS 706 Mini Assignment 2: Start Your First Data Analysis - 10 Sep 2026
+# IDS 706 Mini Assignment : Sleep Data Analysis - 22 Sep 2026
 
 ## Project Description
-This is the 2nd mini assignment under IDS 706 with the purpose for data analysis. The first part covers the usage of pandas and polars with common data manipulation and visualisation. The latter part of this assignment covers experimentation with Rust on Jupyter notebook from the provided Rust template.
+This repository consolidates 2nd and 3rd mini assignment under IDS 706 as part of the 3-week project.
+
+- 2nd Mini Assignment - Start Your First Data Analysis: The first part covers the usage of pandas and polars with common data manipulation and visualisation. The latter part of this assignment covers experimentation with Rust on Jupyter notebook from the provided Rust template.
+- 3rd Mini Assignment - Testing and Reproducibility: This is for practicing the creation of unit test cases and set up a GitHub Actions workflow as an enhancement of those in 2nd Mini Assignment.
 
 
 ## Project Structure 
 ```bash
-IDS706-Mini-Assignment-2-Data-Analysis
-├── .gitignore
-├── requirements.txt                    # List of packages required for installation
-├── analysis_query.ipynb                # Jupyter Notebook for Data Analysis
-├── Sleep_health_and_lifestyle_dataset  # Dataset required for Data Analysis
-├── rust_vs_python_intro.ipynb          # Jupyter Notebook for Rust Exploration based on the provide template
-├── Images/                             # Images used for supporting README.md explantion
-└── README.md                           # Project documentation
+IDS706-Mini-Assignment-2-3-Sleep-Data
+├── requirements.txt                        # List of packages required for installation
+├── analysis_query.ipynb                    # Jupyter Notebook for Data Analysis
+├── Sleep_health_and_lifestyle_dataset.csv  # Dataset required for Data Analysis
+├── Testing/                   
+│   ├── test_functional.py                  # Functional test command
+│   ├── test_integration.py                 # Integration test - End to end workflow run
+├── Makefile                                # Create shortcut to all common command for the development
+├── Dockerfile                              # Docker container to package everything we built
+├── .github/                   
+│   ├── workflows        
+│       ├── test.yml                        # GitHub Actions workflow
+├── Images/                                 # Images used for supporting README.md explanation
+├── Rust Experience/                        # Jupyter Notebook for Rust Exploration based on the provide template
+└── README.md                               # Project documentation
 ```
 
 ## Dataset Description 
@@ -23,7 +33,7 @@ The dataset uses for this assignment is Sleep_health_and_lifestyle_dataset.csv f
 ## Overall Setup Instructions
 ### 1. Creat GitHub repository
 General:
-- Name the repository with `IDS706-Mini-Assignment-2-Data-Analysis`.
+- Name the repository with `IDS706-Mini-Assignment-2-3-Sleep-Data`.
 
 Configuration:
 - Add README - Toggle On option.
@@ -33,7 +43,7 @@ Configuration:
 
 ### 2. Clone repository in VS Code
 - Open Command Palette and select `Git: Clone`.
-- Paste GitHub repository URL (e.g. https://github.com/violathadtanone/IDS706-Mini-Assignment-2).
+- Paste GitHub repository URL (e.g. https://github.com/violathadtanone/IDS706-Mini-Assignment-2-3-Sleep-Data).
 - Select the local folder to continue the development.
 <br><br>
 
@@ -53,6 +63,7 @@ python -m pip install --upgrade ipykernel
 ### 4. Create requirement file for project dependencies (e.g. python packages required)
 - Create a new file called `requirements.text` in the project root and add packages below in the file.
 ```
+pytest
 pandas
 polars
 scikit-learn
@@ -61,6 +72,11 @@ matplotlib
 - Install the requirements in the visual environment `(.venv) (base)` with the code below in Terminal:
 ```bash
 python -m pip install -r requirements.txt
+```
+
+- Verify that `pytest` is installed for the functional tests. This should return with pytest version number on Terminal. This can also be done with other packages mentioned in the requirements.
+```bash
+pytest --version
 ```
 <br><br>
 
@@ -117,6 +133,79 @@ evcxr_jupyter --install
 - Select `Rust` as the kernel. If this does not appear, save the existing works and `⌘ + SHIFT + P` then choose `> Developer: Reload Window`.
 <br><br>
 
+## Setting Testing
+
+### 1. Create functional and integration file for further update
+- Create the folder name `tests` in the project root. This is the folder to store all the test files.
+- Create new files called `test_functional.py` and `test_integration.py` under this folder. Further details to be discussed in the next section.
+<br><br>
+
+### 2. Create a Makefile
+- Create a new file called `Makefile` in the project root with the code below. The file should have Orange icon.
+```
+.PHONY: install test run docker-build docker-run docker-test clean
+
+IMAGE_NAME := mini-assignment-3
+
+# Install dependencies
+install:
+	python -m pip install -r requirements.txt
+
+# Run tests from Testing folder
+test:
+	python -m pytest -vv Testing/
+
+# Build the Docker image
+docker-build:
+	docker build -t $(IMAGE_NAME) .
+
+# Run the test suite from Testing folder inside Docker
+docker-test:
+	docker run --rm $(IMAGE_NAME) python -m pytest -vv Testing/
+
+# Clean generated files
+clean:
+	rm -rf __pycache__
+	rm -rf .pytest_cache
+```
+<br><br>
+
+### 3. Run the project with Docker
+- Install and open Docker Destop.
+- Verify that Docker is installed. This should return with Docker version number on Terminal.
+```bash
+docker --version
+```
+- Create a new file called `Dockerfile` in the project root and include the code below. The file should have Docker icon.
+```
+FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY Sleep_health_and_lifestyle_dataset.csv .
+COPY Testing ./Testing
+
+CMD ["python", "-m", "pytest", "-vv"]
+```
+
+- Create a another file called `.dockerignore` in the project root and include the code below. This summarises all the files to be ignored by Docker.
+```
+.venv
+__pycache__
+.pytest_cache
+.git
+.github
+```
+
+- Build the image using Docker related shortcut from `Makefile` with the code below in Terminal:
+```bash
+make docker-build
+```
+<br><br>
+
 ## Key Highlights from Data Analysis Results
 - Further details of analysis conducted can be found in https://github.com/violathadtanone/IDS706-Mini-Assignment-2/blob/main/analysis_query.ipynb
 
@@ -152,6 +241,112 @@ evcxr_jupyter --install
 - Overall, this partially aligned with the general consensus that Polars can outperform Pandas, particularly for data manipulation, but Polars’ performance depends on the type of task, and it may not be faster when using tools like scikit-learn.
 
 ![Pandas vs Polars](Image/pandas_vs_polars.png)
+<br><br>
 
 ## Rust Exploration
 - Further details on experimentation with Rust can be found from https://github.com/violathadtanone/IDS706-Mini-Assignment-2/blob/main/rust_vs_python_intro.ipynb
+<br><br>
+
+## Functional Test
+Once we created `test_functional.py` during setup, test cases can be included across the following framework:
+### 1. Data loading
+- Dataset is loaded as a DataFrame
+- Dataset is not empty
+- There are 374 rows and 13 columns
+- Expected columns are presented
+- No duplication in Person ID
+
+### 2. Data preprocessing and transformation
+- Dataset contains only female observations
+- Subset data for female is not empty
+- Age Group variable is created
+- Age Group contains only expected categories
+- Daily Step Level variable is created
+- Daily Step Level contains only expected categories
+
+### 3. Data Visualization
+- Categorical variables are as expected
+- Mean Sleep Duration values are valid and within the expected range of 0–10 hours
+
+### 4. Machine learning model training, prediction and evaluation
+- Model predictions are valid, finite, and match the test dataset size
+- Model evaluation and visualization data are valid, with finite R²/RMSE values and the expected structure
+- Test Sleep Duration values and the perfect prediction line have a valid range
+<br><br>
+
+## Integration Test
+Instead of treating each function separately, we check that the entire workflow in a single test to validate the interaction between each components. This includes: 
+- Data loading
+- Data preprocessing and transformation → Using raw data from data loading
+- Machine learning model training → Using preprocessing data
+- Machine learning model prediction and evaluation → Using train and test data
+- Data visualization → Using machine learning results 
+<br><br>
+
+## Test Execution & Results
+### 1. Run the test from python file
+- Run the code below in Terminal with `test_main.py` to see perform the test with details. Test results will be indicated here.
+```bash
+python -m pytest -vv Testing/
+```
+
+### 2. Run the test from Makefile
+- Run the code below in Terminal. This should return the same results of passing/failing from the previous steps.
+```bash
+make test
+```
+
+### 3. Run the test from Docker
+- Run the code below in Terminal. This should return the same results of passing/failing from the previous steps. The screenshot of test results can also be seen below.
+```bash
+make docker-test
+```
+
+![Docker Test Results](Images/docker-test.png)
+<br><br>
+
+## CI Workflow
+This will allow us to use GitHub Action to automatically run the tests.
+
+### 1. Add GitHub Actions
+- Create the folder called `.github` in the project root and create another subfolder called `workflows`.
+- Create the file called `test.yml` within `workflows` and include the code below.
+```
+name: Functional & Integration Testing
+
+# This workflow will automatically run tests on code changes.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: make install
+
+      - name: Run both functional and integration tests with Makefile
+        run: make test
+
+      - name: Build Docker image
+        run: make docker-build
+
+      - name: Run both functional and integration tests in Docker
+        run: make docker-test
+```
+
+### 2. Validate workflow run
+- We can check the successful run of the workflow, where the green icon indicates a complete run, where red icon indicates some failure during the run. The screenshot of CI results can also be seen below.
+![CI Results1](images/CI_results1.png)
+![CI Results2](images/CI_results2.png)

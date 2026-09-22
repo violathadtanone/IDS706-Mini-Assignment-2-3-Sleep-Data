@@ -1,0 +1,32 @@
+name: Functional & Integration Testing
+
+# This workflow will automatically run tests on code changes.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: make install
+
+      - name: Run both functional and integration tests with Makefile
+        run: make test
+
+      - name: Build Docker image
+        run: make docker-build
+
+      - name: Run both functional and integration tests in Docker
+        run: make docker-test
