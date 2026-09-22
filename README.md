@@ -39,13 +39,11 @@ Configuration:
 - Add README - Toggle On option.
 - Add .gitignore - Select Python.
 - Proceed to create repository.
-<br><br>
 
 ### 2. Clone repository in VS Code
 - Open Command Palette and select `Git: Clone`.
 - Paste GitHub repository URL (e.g. https://github.com/violathadtanone/IDS706-Mini-Assignment-2-3-Sleep-Data).
 - Select the local folder to continue the development.
-<br><br>
 
 ### 3. Set up a Python virtual environment
 - Create and activate the virtual environment on Terminal with the code below:
@@ -58,7 +56,6 @@ source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install --upgrade ipykernel
 ```
-<br><br>
 
 ### 4. Create requirement file for project dependencies (e.g. python packages required)
 - Create a new file called `requirements.text` in the project root and add packages below in the file.
@@ -130,12 +127,11 @@ evcxr_jupyter --install
 - Select `Rust` as the kernel. If this does not appear, save the existing works and `⌘ + SHIFT + P` then choose `> Developer: Reload Window`.
 <br><br>
 
-## Setting Testing
+## Setting up Testing
 
 ### 1. Create functional and integration file for further update
 - Create the folder name `tests` in the project root. This is the folder to store all the test files.
 - Create new files called `test_functional.py` and `test_integration.py` under this folder. Further details to be discussed in the next section.
-<br><br>
 
 ### 2. Create a Makefile
 - Create a new file called `Makefile` in the project root with the code below. The file should have Orange icon.
@@ -165,7 +161,6 @@ clean:
 	rm -rf __pycache__
 	rm -rf .pytest_cache
 ```
-<br><br>
 
 ### 3. Run the project with Docker
 - Install and open Docker Destop.
@@ -212,7 +207,7 @@ make docker-build
 - It appeared that female from our dataset slept around 7.23 hours per day, while it was around 7.04 hours per day for male. 
 - Because the dataset does not provide sufficient information on the participants’ health status, it is also difficult to determine whether the observed difference in sleep duration is associated with gender or other underlying characteristics.
 
-![Sleep Duration by Gender](Image/gender_vs_sleep.png)
+![Sleep Duration by Gender](Images/gender_vs_sleep.png)
 
 ### Sleep Duration in Female
 - To further explore this pattern, we created a subset containing only 185 women to examine whether the relationships observed in the overall dataset persisted within the female group.
@@ -221,8 +216,8 @@ make docker-build
 - For `'Daily Step Level'`, it has been initially hypothesized that the more steps female take per day, the longer her daily sleep duration. Nevertheless, the barchart diagram came back with surprising results, where female individuals with lower daily steps tended to have longer duration of sleep at 7.84 hours. Hence we proceeded to perform multiple regression models to understand further of such perplex relationship.
 
 <p align="center">
-  <img src="Image/female_vs_age.png" width="45%">
-  <img src="Image/female_vs_step.png" width="45%">
+  <img src="Images/female_vs_age.png" width="45%">
+  <img src="Images/female_vs_step.png" width="45%">
 </p>
 
 ### Machine Learning Results
@@ -231,7 +226,7 @@ make docker-build
 - The final results showed that all three models perform well, with Random Forest performing best (R² = 0.919, RMSE = 0.225), indicating slightly higher predictive accuracy than Gradient Boosting and Decision Tree.
 - Adding 'Age' substantially improved model performance. For Decision Tree model, R² increased from 0.74 to 0.91, while RMSE decreased from 0.45 to 0.23, while for Random Forest model, R² increased from 0.71 to 0.92, while RMSE decreased from 0.47 to 0.23. 
 
-![Machine Learning Scenario 2](Image/machine_s2.png)
+![Machine Learning Scenario 2](Images/machine_s2.png)
 
 ## Pandas vs Polars Performance
 - Polars was slightly faster than Pandas for the data analysis section (0.68s vs. 0.7s), but slower for the machine learning section (0.95s vs. 0.76s).
