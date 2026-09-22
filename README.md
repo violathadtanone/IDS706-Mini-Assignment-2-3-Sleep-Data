@@ -291,7 +291,7 @@ make test
 ```
 
 ### 3. Run the test from Docker
-- Run the code below in Terminal. This should return the same results of passing/failing from the previous steps. The screenshot of test results can also be seen below.
+- Run the code below in Terminal. This should return the same results of passing/failing from the previous steps. The screenshot of test results can also be seen below, where all test cases successfully passed.
 ```bash
 make docker-test
 ```
@@ -341,6 +341,6 @@ jobs:
 ```
 
 ### 2. Validate workflow run
-- We can check the successful run of the workflow, where the green icon indicates a complete run, where red icon indicates some failure during the run. The screenshot of CI results can also be seen below.
+- We can check the successful run of the workflow, where the green icon indicates a complete run, where red icon indicates some failure during the run. The screenshot of CI results can also be seen below, where all workflows successfully ran.
 ![CI Results1](Images/CI_results1.png)
 ![CI Results2](Images/CI_results2.png)
