@@ -4,7 +4,7 @@
 This repository consolidates 2nd and 3rd mini assignment under IDS 706 as part of the 3-week project.
 
 - 2nd Mini Assignment - Start Your First Data Analysis: The first part covers the usage of pandas and polars with common data manipulation and visualisation. The latter part of this assignment covers experimentation with Rust on Jupyter notebook from the provided Rust template.
-- 3rd Mini Assignment - Testing and Reproducibility: This is for practicing the creation of unit test cases and set up a GitHub Actions workflow as an enhancement of those in 2nd Mini Assignment, especially on the analysis using Pandas.
+- 3rd Mini Assignment - Testing and Reproducibility: This is for practicing the creation of functional and integration test cases and setting up a GitHub Actions workflow as an enhancement of those in 2nd Mini Assignment, especially on the analysis using Pandas.
 
 
 ## Project Structure 
@@ -199,7 +199,7 @@ make docker-build
 <br><br>
 
 ## Key Highlights from Data Analysis Results
-- Further details of analysis conducted can be found in https://github.com/violathadtanone/IDS706-Mini-Assignment-2/blob/main/analysis_query.ipynb
+- Further details of analysis conducted can be found in https://github.com/violathadtanone/IDS706-Mini-Assignment-2-3-Sleep-Data/blob/main/analysis_query.ipynb
 
 ### Gender vs Sleep Duration
 
@@ -236,7 +236,7 @@ make docker-build
 <br><br>
 
 ## Rust Exploration
-- Further details on experimentation with Rust can be found from https://github.com/violathadtanone/IDS706-Mini-Assignment-2/blob/main/rust_vs_python_intro.ipynb
+- Further details on experimentation with Rust can be found from https://github.com/violathadtanone/IDS706-Mini-Assignment-2-3-Sleep-Data/blob/main/Rust%20Experience/rust_vs_python_intro.ipynb
 <br><br>
 
 ## Functional Test
