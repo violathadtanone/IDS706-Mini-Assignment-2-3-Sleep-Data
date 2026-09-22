@@ -238,7 +238,7 @@ def test_machine_learning_2():
     assert np.isfinite(predictions[1]).all()
     assert np.isfinite(predictions[2]).all()
 
-    # Check perfect prediction line
+    # Check prediction line
     line_min = y2_test.min()
     line_max = y2_test.max()
 
