@@ -241,8 +241,8 @@ make docker-build
 - Further details on experimentation with Rust can be found from https://github.com/violathadtanone/IDS706-Mini-Assignment-2-3-Sleep-Data/blob/main/Rust%20Experience/rust_vs_python_intro.ipynb
 <br><br>
 
-## Functional Test
-Once we created `test_functional.py` during setup, functional test cases can be included across the following framework:
+## Functional/Unit Test
+Once we created `test_functional.py` during setup, the test cases can be included across the following framework:
 ### 1. Data loading
 - Dataset is loaded as a DataFrame
 - Dataset is not empty
